@@ -1,18 +1,17 @@
 <template>
     <div id="app">
         <div class="layui-container">
-            <!-- <validation-observer ref="observere" v-slot="{validate}"> -->
             <form class="layui-form layui-form-pane" action>
                 <div class="layui-form-item">
                     <validation-provider name="用户名" rules="required|email" v-slot="{ errors }">
-                        <label class="layui-form-label">用户名</label>
+                        <label class="layui-form-label">用户名/邮箱</label>
                         <div class="layui-input-inline">
                             <input
                                 type="text"
                                 name="title"
                                 required
                                 lay-verify="required"
-                                placeholder="请输入标题"
+                                placeholder="请输入用户名/邮箱"
                                 autocomplete="off"
                                 class="layui-input"
                                 v-model.trim="name"
@@ -25,7 +24,7 @@
                     <validation-provider
                         name="密码"
                         v-slot="{ errors }"
-                        rules="required|min:6|max:16|confirmed:confirmation"
+                        rules="required|min:6|max:16"
                     >
                         <label class="layui-form-label">密码框</label>
                         <div class="layui-input-inline">
@@ -45,7 +44,7 @@
                     <validation-provider 
                         v-slot="{errors}" 
                         name="验证码" 
-                        rules="required"
+                        rules="required|min:4|max:4"
                     >
                         <label class="layui-form-label">验证码</label>
                         <div class="layui-input-inline">
@@ -72,7 +71,6 @@
                 <button type="button" class="layui-btn">点击登录</button>
                 <a class="link" href="http://www.layui.com">忘记密码？</a>
             </form>
-            <!-- </validation-observer> -->
         </div>
     </div>
 </template>
